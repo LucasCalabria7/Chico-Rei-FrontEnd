@@ -1,4 +1,4 @@
-<script >
+<script>
 export default {
     name: "Card",
     props: {
@@ -14,20 +14,22 @@ export default {
     <div>
         <div id="global-card">
             <div id="image-area">
-                <img id="card-image" src="" alt="card-image" />
+                <img id="card-image" :src="dadosProduto.images[0]" alt="card-image" />
                 <div id="title-area">
-                    <p id="card-title">{{  }}</p>
+                    <p id="card-title">{{ dadosProduto.title }}</p>
                     <button id="add-button">Adicionar</button>
                 </div>
             </div>
             <div id="info-area">
-                <p><i><b>{{  }}</b></i></p>
-                <h4 id="price">R${{  }}</h4>
+                <p><i><b>{{ dadosProduto.brand }}</b></i></p>
+                <h4 id="price">R${{ dadosProduto.price }}</h4>
                 <div id="rating-area">
                     <img id="rating-icon" src="../assets/rating.png" />
-                    <p id="rate">{{ }}</p>
+                    <p id="rate">{{ dadosProduto.rating }}</p>
                 </div>
-                <p id="description">{{  }}</p>
+                <div id="description-area" >
+                <p id="description">{{ dadosProduto.description }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -38,13 +40,14 @@ export default {
 @orangechico: #db7416;
 
 #global-card {
-    width: 32rem;
+    width: 26rem;
     height: 22rem;
     box-shadow: 0px 0.25rem 0.60rem 0 @orangechico;
     border-radius: 0.75rem;
     display: flex;
     gap: 1rem;
 }
+
 #image-area {
     width: 60%;
     height: 100%;
@@ -67,7 +70,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
 }
 #card-title {
     font-weight: bold;
@@ -88,13 +91,15 @@ export default {
     background-color: #f29000;
 }
 #info-area {
-    width: 40%;
+    max-width: 40%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    padding: 0.25rem;
     padding-top: 1rem;
+    overflow-y: hidden;
 }
 #price {
     color: @orangechico;
@@ -113,9 +118,14 @@ export default {
 #rate {
     font-style: italic;
 }
+
+#description-area {
+    max-width: 10rem;
+    padding-right: 0.5rem;
+}
+
 #description {
     font-weight: bold;
-    font-size: 0.9rem;
-    padding-left: 0.65REM;
+    font-size: 0.7rem;
 }
 </style>
