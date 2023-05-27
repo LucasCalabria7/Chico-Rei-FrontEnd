@@ -24,7 +24,7 @@ export default {
     async mounted() {
         const result = [];
 
-        for (let i = 66; i <= 70; i++) {
+        for (let i = 36; i <= 40; i++) {
             const url = `https://dummyjson.com/products/${i}`;
             const res = await axios.get(url);
             result.push(res.data);
