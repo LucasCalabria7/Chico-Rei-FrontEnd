@@ -1,6 +1,6 @@
 # Chico-Rei-FrontEnd
 
-![preview](./readme-pic.png)
+![preview](./readmepic.png)
 
 Este projeto foi realizado como parte do processo seletivo para desenvolvedor Front-End JR na empresa CHICO REI, o desafio foi criado em duas partes, uma técnica e outra prática, e aqui, o presente projeto cumpre a parte prática e atende seus requisitos. Tal desafio exige que escolhamos uma API pública de escolha livre e através dela, é necessário buscar e criar dados em formas específicas.
 
