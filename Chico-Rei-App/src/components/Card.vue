@@ -1,14 +1,3 @@
-<script>
-export default {
-    name: "Card",
-    props: {
-        dadosProduto: {
-            type: Object,
-            required: true,
-        },
-    },
-};
-</script>
 
 <template>
     <div class="card">
@@ -28,12 +17,29 @@ export default {
                     <img class="rating-icon" src="../assets/rating.png" />
                     <p class="rate">{{ dadosProduto.rating }}</p>
                 </div>
-                <button class="add-button">Adicionar</button>
+                <button class="add-button" @click="addButton" >Adicionar</button>
             </div>
         </div>
     </div>
 </template>
-  
+
+<script>
+export default {
+    name: "Card",
+    props: {
+        dadosProduto: {
+            type: Object,
+            required: true,
+        },
+    },
+    methods: {
+        addButton: function() {
+            alert("Endpoint para requisição de produtos na sacola")
+        }
+    }
+};
+</script>
+
 <style lang="less" scoped>
 @orangechico: #db7416;
 

@@ -60,6 +60,7 @@ export default {
 @gap: 1rem;
 @fullwidth: 100vw;
 @dark: #201f1e;
+@light: #f3f3f1;
 
 #global-filter {
     height: 15vh;

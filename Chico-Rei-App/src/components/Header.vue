@@ -38,7 +38,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
 
 @dark : #201f1e;
-@light: #f2efe9;
+@light: #f3f3f1;
 @titlefont: 'Alkatra', cursive;
 
 .global-header {

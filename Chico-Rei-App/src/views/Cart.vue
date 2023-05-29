@@ -34,7 +34,7 @@
                 <label for="titular">Titular do cartão</label>
                 <input class="regular-input" type="text" id="titular" v-model="titular" />
                 <label for="data">Data de vencimento</label>
-                <input class="regular-input" type="date" id="data" v-model="date" />
+                <input class="regular-input" type="month" id="data" v-model="date" />
                 <label for="cvc">CVC</label>
                 <input class="regular-input" type="number" id="cvc" v-model="cvc" />
                 
@@ -248,7 +248,7 @@ export default {
 
 .regular-input {
     width: 70%;
-    height: 1.25rem;
+    height: 1.4rem;
     border: 2px solid @dark;
     border-radius: 0.3rem;
     box-shadow: 0px 0.15rem 0.15rem 0 @orangechico;
@@ -279,7 +279,7 @@ label {
 }
 
 #finalizar-compra {
-    height: 8vh;
+    height: 6vh;
     width: 100%;
     color: white;
     background-color: rgb(255, 170, 59);
