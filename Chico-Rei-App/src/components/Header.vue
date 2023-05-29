@@ -2,10 +2,14 @@
     <div>
         <div class="global-header">
             <img id="first-logo" src="../assets/first-logo.png" alt="firstlogo" />
-            <h2 id="main-logo">Chico Rei</h2>
+            <router-link to="/" >
+            <img id="main-logo" src="../assets/sidebar-icon.png" alt="header-logo" />
+            </router-link>
             <div id="user-bag-area">
                 <img id="user-logo" src="../assets/user.png" alt="firstlogo" v-on:click="endpointUser" />
-                <img id="shop-bag" src="../assets/shopping-bag.png" alt="firstlogo" />
+                <router-link to="/cart">
+                    <img id="shop-bag" src="../assets/shopping-bag.png" alt="shop-bag" />
+                </router-link>
                 <p id="vertical-bar">|</p>
 
                 <div id="contact-area">
@@ -22,11 +26,11 @@
 
 <script>
 export default {
-    methods: {
-        endpointUser: function () {
-            alert("Endpoint Login")
-        }
-    },
+        methods: {
+            endpointUser: function () {
+                alert("Endpoint Login");
+            },
+        },
 };
 </script>
 
@@ -53,8 +57,8 @@ export default {
 }
 
 #main-logo {
-    color: @dark;
-    font-family: @titlefont;
+    height: 6rem;
+    width: 6rem;
 }
 
 #contact-area {

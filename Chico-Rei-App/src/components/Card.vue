@@ -11,72 +11,79 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div id="global-card">
-            <div id="image-area">
-                <img id="card-image" :src="dadosProduto.images[0]" alt="card-image" />
-                <div id="title-area">
-                    <p id="card-title">{{ dadosProduto.title }}</p>
-                    <button id="add-button">Adicionar</button>
-                </div>
+    <div class="card">
+        <div class="left-side">
+            <div class="image-area">
+                <img class="card-image" :src="dadosProduto.images[0]" alt="card-image" />
             </div>
-            <div id="info-area">
-                <p><i><b>{{ dadosProduto.brand }}</b></i></p>
-                <h4 id="price">R${{ dadosProduto.price }}</h4>
-                <div id="rating-area">
-                    <img id="rating-icon" src="../assets/rating.png" />
-                    <p id="rate">{{ dadosProduto.rating }}</p>
+            <div class="title-area">
+                <p class="card-title">{{ dadosProduto.title }}</p>
+            </div>
+        </div>
+        <div class="right-side">
+            <p class="brand">{{ dadosProduto.brand }}</p>
+            <div class="info">
+                <h4 class="price">R${{ dadosProduto.price }}</h4>
+                <div class="rating-area">
+                    <img class="rating-icon" src="../assets/rating.png" />
+                    <p class="rate">{{ dadosProduto.rating }}</p>
                 </div>
-                <div id="description-area" >
-                <p id="description">{{ dadosProduto.description }}</p>
-                </div>
+                <button class="add-button">Adicionar</button>
             </div>
         </div>
     </div>
 </template>
-
+  
 <style lang="less" scoped>
-
 @orangechico: #db7416;
 
-#global-card {
-    width: 26rem;
-    height: 22rem;
-    box-shadow: 0px 0.25rem 0.60rem 0 @orangechico;
+.card {
+    width: 100%;
+    max-width: 24rem;
+    height: 100%;
+    box-shadow: 0px 0.25rem 0.6rem 0 @orangechico;
     border-radius: 0.75rem;
     display: flex;
-    gap: 1rem;
+    overflow: hidden;
 }
 
-#image-area {
-    width: 60%;
-    height: 100%;
+.left-side {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.25rem;
+    background-color: #f2f2f2;
+}
+
+.image-area {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+    justify-content: center;
     padding: 0.25rem;
-    margin-top: 0.25rem;
 }
-#card-image {
-    height: 65%;
+
+.card-image {
+    height: 22vh;
     width: 100%;
     border-radius: 0.75rem;
 }
-#title-area {
-    width: 85%;
-    height: 85%;
+
+.title-area {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 1rem;
+    padding: 0.25rem;
 }
-#card-title {
+
+.card-title {
     font-weight: bold;
     font-size: 1.1rem;
+    text-align: center;
 }
-#add-button {
+
+.add-button {
     height: 4vh;
     width: 100%;
     color: white;
@@ -87,45 +94,72 @@ export default {
     border-radius: 0.75rem;
     transition: all 0.2s ease-in-out;
 }
-#add-button:hover {
+
+.add-button:hover {
     background-color: #f29000;
 }
-#info-area {
-    max-width: 40%;
-    height: 100%;
+
+.right-side {
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     padding: 0.25rem;
-    padding-top: 1rem;
-    overflow-y: hidden;
 }
-#price {
+
+.brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.price {
     color: @orangechico;
     font-size: 2rem;
 }
-#rating-area {
+
+.rating-area {
     display: flex;
     align-items: center;
     gap: 1rem;
-    width: 100%;
-    justify-content: center;
 }
-#rating-icon {
+
+.rating-icon {
     height: 1.5rem;
 }
-#rate {
+
+.rate {
     font-style: italic;
 }
 
-#description-area {
-    max-width: 10rem;
-    padding-right: 0.5rem;
-}
+/* Estilos Responsivos */
 
-#description {
-    font-weight: bold;
-    font-size: 0.7rem;
+@media screen and (max-width: 600px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+    }
+
+    .image-area {
+        padding: 0;
+    }
+
+    .card-image {
+        border-radius: 0.75rem 0.75rem 0 0;
+    }
+
+    .title-area {
+        padding: 0.5rem;
+    }
 }
 </style>
+  

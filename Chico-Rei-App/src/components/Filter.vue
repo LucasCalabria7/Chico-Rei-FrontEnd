@@ -1,6 +1,9 @@
 <template>
     <div id="global-filter">
-        <img id="filter-icon" src="../assets/filter.png" />
+        <button id="menu-button" @click="toggleMenu">
+            <img id="menu-icon" src="../assets/menu-icon.png" alt="Menu Icon" />
+        </button>
+        <img id="filter-icon" src="../assets/filter-icon.png" alt="filter-icon" />
         <div id="input-area">
             <select class="input-select" v-model="selectedMensCategory" v-on:change="changeRoute($event)">
                 <option value="" selected>Masculinos</option>
@@ -18,49 +21,37 @@
                 <option value="Bolsa">Bolsas</option>
                 <option value="Joia">Jóias</option>
             </select>
-            <select class="input-select" v-model="selectedPriceCategory">
-                <option value="">Preço</option>
-                <option value="expensives">Maiores Preços</option>
-                <option value="cheaps">Menores Preços</option>
-            </select>
-            <select class="input-select" v-model="selectedRatedCategory">
-                <option value="">Popularidade</option>
-                <option value="top-rated">Mais Populares</option>
-                <option value="less-rated">Menos Populares</option>
-            </select>
-            <Sidebar />
         </div>
+        <Sidebar v-if="isMenuOpen" :is-menu-open="isMenuOpen" @toggle-menu="toggleMenu" />
     </div>
 </template>
-
+  
 <script>
-
 import Sidebar from './Sidebar.vue';
-
 
 export default {
     components: { Sidebar },
     name: "Filter",
-    props: {
-    },
+    props: {},
 
     data() {
         return {
             selectedMensCategory: '',
             selectedWomensCategory: '',
-            selectedPriceCategory: '',
-            selectedRatedCategory: '',
+            isMenuOpen: false
         }
     },
-    computed() {
-
-    },
     methods: {
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen;
+        },
+        closeMenu() {
+            this.isMenuOpen = false;
+        },
         changeRoute(e) {
             this.$router.push("/" + e.target.value);
         },
     },
-
 };
 </script>
 
@@ -68,6 +59,7 @@ export default {
 @orangechico: #db7416;
 @gap: 1rem;
 @fullwidth: 100vw;
+@dark: #201f1e;
 
 #global-filter {
     height: 15vh;
@@ -76,6 +68,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
 }
 
 #filter-icon,
@@ -88,6 +81,13 @@ export default {
     cursor: pointer;
 }
 
+#menu-button {
+    border: none;
+    background-color: transparent;
+    height: 1.5rem;
+    width: 4rem;
+}
+
 #input-area {
     display: flex;
     gap: @gap;
@@ -98,7 +98,9 @@ export default {
     height: 4vh;
     font-weight: 600;
     text-align: center;
-    border-radius: @gap;
+    border-radius: 0.3rem;
     width: 12vw;
+    box-shadow: 0px 0.15rem 0.15rem 0 @orangechico;
+    border: 1px solid @dark;
 }
 </style>
