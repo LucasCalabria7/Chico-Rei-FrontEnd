@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "name": "Camisa DGK Guadalupe",
+        "size": "Camiseta Regular GG",
+        "price": 100,
+        "quantity": 1,
+        "image": "https://th.bing.com/th/id/OIP.h4xUg2Uqly3tfX8plDu1SwHaHa?pid=ImgDet&rs=1"
+    },
+    {
+        "id": 1,
+        "name": "Camisa JAVA",
+        "size": "Camisa Regular G",
+        "price": 80,
+        "quantity": 1,
+        "image": "https://i.pinimg.com/474x/dc/32/57/dc325738193f010e81d3dcad9071a8d3.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Camisa Programmer",
+        "size": "Camisa Regular GG",
+        "price": 75,
+        "quantity": 1,
+        "image": "https://i.pinimg.com/originals/d6/9a/45/d69a453f2f4d53572efa8e8e16e07c11.jpg"
+    }
+]
