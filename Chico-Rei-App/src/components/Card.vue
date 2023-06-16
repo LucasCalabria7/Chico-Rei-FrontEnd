@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         addButton: function() {
-            alert("Endpoint para requisição de produtos na sacola")
+            alert("Produto adicionado com sucesso!")
         }
     }
 };
