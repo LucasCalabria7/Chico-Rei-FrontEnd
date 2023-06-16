@@ -5,7 +5,7 @@
         </div>
         <div id="info-card-area">
             <p id="shirt-name">{{ dadosProduto.name }}</p>
-            <p>{{ dadosProduto.size }}</p>
+            <p>{{ dadosProduto.category }}</p>
             <p id="shirt-price">R${{ dadosProduto.price }}</p>
             <div id="select-area">
                 <select id="quantity" v-model="dadosProduto.quantity" @change="updateQuantity">
@@ -14,6 +14,13 @@
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
+                </select>
+                <select id="size" v-model="dadosProduto.size" @change="updateSize">
+                    <option>P</option>
+                    <option>M</option>
+                    <option>G</option>
+                    <option>GG</option>
+                    <option>XGG</option>
                 </select>
                 <img src="../assets/trash-icon.png" alt="trash" id="trash" @click="removeCard" />
             </div>
@@ -44,6 +51,9 @@ export default {
     updateQuantity() {
         this.$emit("update-quantity");
     },
+    updateSize() {
+        this.$emit("update-size");
+    },
 };
 </script>
 
@@ -51,7 +61,7 @@ export default {
 @orangechico: #db7416;
 
 #card {
-    width: 100%;
+    width: 80%;
     height: 33.33%;
     box-shadow: 0px 0.25rem 0.60rem 0 @orangechico;
     border-radius: 0.75rem;
@@ -62,7 +72,7 @@ export default {
 }
 
 #image-area {
-    width: 60%;
+    width: 50%;
     height: 100%;
 }
 
@@ -92,7 +102,11 @@ export default {
 
 #select-area {
     display: flex;
-    width: 10%;
+    width: 20%;
     gap: 0.5rem;
+}
+
+#size, #quantity {
+    width: 4rem;
 }
 </style>

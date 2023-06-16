@@ -1,6 +1,6 @@
 <template>
     <div id="global-cart">
-        <div id="info-area">
+        <div id="inputs-area">
             <div id="info-contato">
                 <h3 id="title">Finalize seu Pedido</h3>
                 <p class="sub-title">Informações de Contato</p>
@@ -37,7 +37,6 @@
                 <input class="regular-input" type="month" id="data" v-model="date" />
                 <label for="cvc">CVC</label>
                 <input class="regular-input" type="number" id="cvc" v-model="cvc" />
-                
             </div>
         </div>
         <div id="bag-area">
@@ -45,7 +44,7 @@
             <div id="cards-area">
                 <CardBag v-for="(produto, index) in produtos" :key="index" :dados-produto="produto"
                     @remove-card="removeCard" @update-quantity="updateQuantity" />
-                    <button id="finalizar-compra" @click="finalizarCompra">Finalizar Compra!</button>
+                <button id="finalizar-compra" @click="finalizarCompra">Finalizar Compra!</button>
             </div>
         </div>
     </div>
@@ -177,6 +176,7 @@ export default {
 };
 </script>
 
+
 <style lang="less">
 @full-width: 100vw;
 @full-height: 75vh;
@@ -185,12 +185,11 @@ export default {
 
 #global-cart {
     display: flex;
-    flex-wrap: wrap;
     min-height: @full-height;
     max-width: @full-width;
 }
 
-#info-area,
+#inputs-area,
 #bag-area {
     display: flex;
     flex-wrap: wrap;
@@ -280,7 +279,7 @@ label {
 
 #finalizar-compra {
     height: 6vh;
-    width: 100%;
+    width: 80%;
     color: white;
     background-color: rgb(255, 170, 59);
     border: none;
@@ -306,8 +305,11 @@ label {
 }
 
 @media screen and (min-width: 768px) {
+    #global-cart {
+        flex-direction: row;
+    }
 
-    #info-area,
+    #inputs-area,
     #bag-area {
         width: 50%;
     }
@@ -324,4 +326,5 @@ label {
     #cards-area {
         width: 22rem;
     }
-}</style>
+}
+</style>
